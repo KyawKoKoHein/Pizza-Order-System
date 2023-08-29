@@ -62,7 +62,7 @@
 
                                     <div class="my-3">
                                         <i class="fa-solid fa-sitemap me-2"></i>
-                                        {{ $pizza->category_id }}
+                                        {{ $pizza->category_name }}
                                     </div>
 
                                     <div class="my-3">

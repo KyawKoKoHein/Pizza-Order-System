@@ -13,11 +13,14 @@ class ProductController extends Controller
     // product lists
     public function list()
     {
-        $pizzas = Product::when(request('key'), function ($query) {
-            $query->where('name', 'like', '%' . request('key') . '%');
-        })
-            ->orderBy('created_at', 'desc')
-            ->paginate(4);
+        $pizzas = Product::select('products.*', 'categories.name as category_name')
+            ->when(request('key'), function ($query) {
+                $query->where('products.name', 'like', '%' . request('key') . '%');
+            })
+            ->leftJoin('categories', 'products.category_id', 'categories.id')
+            ->orderBy('products.created_at', 'desc')
+            ->paginate(3);
+        // dd($pizzas->toArray());
         $pizzas->appends(request()->all());
 
         return view('admin.products.pizzaList', compact('pizzas'));
@@ -40,7 +43,9 @@ class ProductController extends Controller
     // Edit Pizza
     public function edit($id)
     {
-        $pizza = Product::where('id', $id)->first();
+        $pizza = Product::select('products.*', 'categories.name as category_name')
+            ->leftJoin('categories', 'products.category_id', 'categories.id')
+            ->where('products.id', $id)->first();
         return view('admin.products.edit', compact('pizza'));
     }
 

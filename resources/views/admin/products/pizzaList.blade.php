@@ -131,7 +131,7 @@
                                             <td class="col-2"><img src="{{ asset('storage/' . $p->image) }}"></td>
                                             <td class="col-3"> {{ $p->name }} </td>
                                             <td class="col-2"> {{ $p->price }} </td>
-                                            <td class="col-2"> {{ $p->category_id }} </td>
+                                            <td class="col-2"> {{ $p->category_name }} </td>
                                             <td class="col-2"><i class="fa-solid fa-eye"></i> {{ $p->view_count }} </td>
                                             <td class="col-1">
                                                 <div class="table-data-feature">
