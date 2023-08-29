@@ -12,10 +12,13 @@
                 <div class="col-lg-10 offset-1">
                     <div class="card">
                         <div class="card-body">
+                            <div class="ms-3">
+                                <i class="fa-solid fa-arrow-left text-dark" onclick="history.back()"></i>
+                            </div>
                             <div class="card-title">
                                 <h3 class="text-center title-2">Update Pizza</h3>
                             </div>
-                            <hr>
+
 
                             <form action="{{ route('products#update', $pizza->id) }}" method="POST"
                                 enctype="multipart/form-data">

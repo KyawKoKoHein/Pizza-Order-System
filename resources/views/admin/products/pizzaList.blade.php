@@ -100,10 +100,10 @@
 
                     {{-- Product Update message --}}
                     <div class="col-4 offset-8">
-                        @if (session('productUpdate'))
+                        @if (session('productsUpdate'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <i class="fa-regular fa-circle-check"></i>
-                                {{ session('productUpdate') }}
+                                {{ session('productsUpdate') }}
                                 <button class="btn-close" type="button" data-bs-dismiss="alert"
                                     aria-label="Close"></button>
                             </div>

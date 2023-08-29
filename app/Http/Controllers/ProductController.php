@@ -86,7 +86,7 @@ class ProductController extends Controller
             $data['image'] = $fileName;
         }
 
-        Product::where('id', $request->pizzaId)->update();
+        Product::where('id', $request->pizzaId)->update($data);
         return redirect()->route('products#lists')->with('productsUpdate', 'Your Pizza is updated');
     }
 
